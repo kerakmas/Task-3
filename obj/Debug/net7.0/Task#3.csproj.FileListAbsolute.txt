@@ -1,0 +1,15 @@
+/home/abdullo/Desktop/Task#3/bin/Debug/net7.0/Task#3
+/home/abdullo/Desktop/Task#3/bin/Debug/net7.0/Task#3.deps.json
+/home/abdullo/Desktop/Task#3/bin/Debug/net7.0/Task#3.runtimeconfig.json
+/home/abdullo/Desktop/Task#3/bin/Debug/net7.0/Task#3.dll
+/home/abdullo/Desktop/Task#3/bin/Debug/net7.0/Task#3.pdb
+/home/abdullo/Desktop/Task#3/obj/Debug/net7.0/Task#3.csproj.AssemblyReference.cache
+/home/abdullo/Desktop/Task#3/obj/Debug/net7.0/Task#3.GeneratedMSBuildEditorConfig.editorconfig
+/home/abdullo/Desktop/Task#3/obj/Debug/net7.0/Task#3.AssemblyInfoInputs.cache
+/home/abdullo/Desktop/Task#3/obj/Debug/net7.0/Task#3.AssemblyInfo.cs
+/home/abdullo/Desktop/Task#3/obj/Debug/net7.0/Task#3.csproj.CoreCompileInputs.cache
+/home/abdullo/Desktop/Task#3/obj/Debug/net7.0/Task#3.dll
+/home/abdullo/Desktop/Task#3/obj/Debug/net7.0/refint/Task#3.dll
+/home/abdullo/Desktop/Task#3/obj/Debug/net7.0/Task#3.pdb
+/home/abdullo/Desktop/Task#3/obj/Debug/net7.0/Task#3.genruntimeconfig.cache
+/home/abdullo/Desktop/Task#3/obj/Debug/net7.0/ref/Task#3.dll
