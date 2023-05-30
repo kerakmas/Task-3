@@ -3,8 +3,6 @@ using System.Security.Cryptography;
 
 public class RockPaperScissorsGame
 {
-    private static readonly string[] Moves = { "rock", "paper", "scissors", "lizard", "Spock" };
-
     public static void Main(string[] args)
     {
         if (args.Length < 3 || args.Length % 2 == 0)
@@ -35,7 +33,7 @@ public class RockPaperScissorsGame
         Console.WriteLine("Your move: " + userMoveString);
         Console.WriteLine("Computer move: " + computerMove);
 
-        int result = DetermineWinner(userMove, args.Length);
+        int result = DetermineWinner(userMove, computerMove, args.Length);
         if (result == 0)
         {
             Console.WriteLine("It's a draw!");
@@ -82,17 +80,40 @@ public class RockPaperScissorsGame
         } while (true);
     }
 
-    private static void DisplayHelpTable(int numMoves)
+   private static void DisplayHelpTable(int numMoves)
+{
+    Console.WriteLine("╔═══════════════════════════════════╗");
+    Console.WriteLine("║           Help - Moves             ║");
+    Console.WriteLine("╠═══════════════════════════════════╣");
+    Console.WriteLine("║   Move   ║   Win    ║   Lose   ║Draw║");
+    Console.WriteLine("╠══════════╬═════════╬═════════╬════╣");
+
+    // Define an array of colors
+    ConsoleColor[] colors = { ConsoleColor.Red, ConsoleColor.Green, ConsoleColor.Blue, ConsoleColor.Yellow, ConsoleColor.Magenta };
+
+    for (int i = 1; i <= numMoves; i++)
     {
-        Console.WriteLine("Move | Win  | Lose | Draw");
-        Console.WriteLine("--------------------------");
-        for (int i = 1; i <= numMoves; i++)
-        {
-            string move = Moves[i - 1];
-            string win = Moves[(i % numMoves)];
-            string lose = Moves[(i + 1) % numMoves];
-            Console.WriteLine($"{move,-4} | {win,-4} | {lose,-4} | Draw");
-        }
+        string move = GetMoveName(i);
+        string win = GetMoveName((i % numMoves) + 1);
+        string lose = GetMoveName((i + 1) % numMoves + 1);
+
+        // Set the color based on the move index
+        ConsoleColor color = colors[i - 1];
+        Console.ForegroundColor = color;
+
+        Console.WriteLine($"║ {move,-8} ║ {win,-8} ║ {lose,-8} ║Draw║");
+
+        Console.ResetColor();
+    }
+
+    Console.WriteLine("╚══════════╩═════════╩═════════╩════╝");
+}
+
+
+
+    private static string GetMoveName(int moveIndex)
+    {
+        return moveIndex.ToString();
     }
 
     private static string GenerateComputerMove(int numMoves)
@@ -101,19 +122,19 @@ public class RockPaperScissorsGame
         {
             byte[] randomNumber = new byte[1];
             rng.GetBytes(randomNumber);
-            return Moves[randomNumber[0] % numMoves];
+            return GetMoveName(randomNumber[0] % numMoves + 1);
         }
     }
 
-    private static int DetermineWinner(int userMove, int numMoves)
+    private static int DetermineWinner(int userMove, string computerMove, int numMoves)
     {
         int halfMoves = numMoves / 2;
-        int computerMove = (userMove + halfMoves) % numMoves;
-        if (userMove == computerMove)
+        int computerMoveIndex = int.Parse(computerMove);
+        if (userMove == computerMoveIndex)
         {
             return 0; // Draw
         }
-        else if ((userMove > computerMove && userMove - computerMove <= halfMoves) || (userMove < computerMove && computerMove - userMove > halfMoves))
+        else if ((userMove > computerMoveIndex && userMove - computerMoveIndex <= halfMoves) || (userMove < computerMoveIndex && computerMoveIndex - userMove > halfMoves))
         {
             return 1; // User wins
         }
